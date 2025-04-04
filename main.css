@@ -1,6 +1,6 @@
 /* main.css */
 
-/* Basic reset and body defaults */
+/* Basic reset + body defaults */
 * {
   margin: 0;
   padding: 0;
@@ -32,6 +32,7 @@ aside {
   width: 25%;
   background-color: #ddd;
   padding: 1rem;
+  box-sizing: border-box;
 }
 
 /* Main content column */
@@ -51,71 +52,67 @@ footer {
   box-shadow: 0 0 10px #ccc;
 }
 
-/* ===== NAV MENU ===== */
+/* ===== VERTICAL NAV MENU ===== */
 
 #nav_menu ul {
-  list-style: none;      /* remove default bullets */
-  background-color: #800000;  /* dark red background */
+  list-style: none;          /* no default bullets */
+  background-color: #800000; /* dark red */
+  width: 200px;              /* fixed width for vertical menu */
+  margin: 0;
+  padding: 0;
+  position: relative;
 }
 
+/* Each main menu item stacks vertically */
 #nav_menu ul li {
-  float: left;           /* horizontal layout for top-level items */
-  width: 20%;            /* 5 items => 1/5 each */
-  text-align: center;
-  position: relative;    /* needed for submenu absolute pos */
+  position: relative;  /* needed for the submenu's absolute positioning */
 }
 
+/* Links fill the full width */
 #nav_menu ul li a {
   display: block;
   padding: 1em;
   color: #fff;
   text-decoration: none;
   font-weight: bold;
+  border-bottom: 1px solid #999; /* optional divider line */
 }
 
-/* Hover effect on top-level links */
+/* Hover effect for top-level items */
 #nav_menu ul li a:hover {
   background-color: #a00000;
 }
 
-/* “current” page styling */
+/* Current page highlight */
 #nav_menu a.current {
   background-color: #ffcc00;
   color: #800000;
 }
 
-/* Submenu: hidden by default */
+/* Submenu hidden by default */
 #nav_menu ul ul {
   display: none;
   position: absolute;
-  top: 100%;
-  left: 0;
-  width: 100%;
+  top: 0;
+  left: 200px; /* fly out to the right edge of the main menu */
+  width: 150px;
   background-color: #800000;
 }
 
-/* Submenu items stack vertically */
+/* Submenu items also stack vertically */
 #nav_menu ul ul li {
-  float: none;
   width: 100%;
 }
 
-/* Submenu links */
+/* Submenu hover styling */
 #nav_menu ul ul li a {
   padding: 0.8em;
-  border-top: 1px solid #fff;
+  border-bottom: 1px solid #999;
 }
 
-/* Show submenu on hover */
+/* Show submenu on hover over the parent <li> */
 #nav_menu li:hover ul {
   display: block;
-}
-
-/* Clear floats in nav after the list */
-#nav_menu ul::after {
-  content: "";
-  display: table;
-  clear: both;
 }
 
 /* Circle bullets for the bottom list on index.html */
@@ -124,7 +121,7 @@ footer {
   margin: 1rem 2rem;
 }
 
-/* Float-right helper (used in Sampson page below) */
+/* Float-right helper (for images in speaker pages) */
 .float-right {
   float: right;
   margin: 0 0 1rem 1rem;
