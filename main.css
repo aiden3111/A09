@@ -1,0 +1,131 @@
+/* main.css */
+
+/* Basic reset and body defaults */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f4f4f4;
+}
+
+/* Header */
+header {
+  text-align: center;
+  background: #fff;
+  padding: 1rem;
+  box-shadow: 0 0 10px #ccc;
+  margin-bottom: 1rem;
+}
+
+/* Container for aside + main */
+.container {
+  display: flex;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Aside column */
+aside {
+  width: 25%;
+  background-color: #ddd;
+  padding: 1rem;
+}
+
+/* Main content column */
+main {
+  width: 75%;
+  background-color: #fff;
+  padding: 1rem;
+  box-shadow: 0 0 10px #ccc;
+}
+
+/* Footer */
+footer {
+  text-align: center;
+  background: #fff;
+  padding: 1rem;
+  margin-top: 1rem;
+  box-shadow: 0 0 10px #ccc;
+}
+
+/* ===== NAV MENU ===== */
+
+#nav_menu ul {
+  list-style: none;      /* remove default bullets */
+  background-color: #800000;  /* dark red background */
+}
+
+#nav_menu ul li {
+  float: left;           /* horizontal layout for top-level items */
+  width: 20%;            /* 5 items => 1/5 each */
+  text-align: center;
+  position: relative;    /* needed for submenu absolute pos */
+}
+
+#nav_menu ul li a {
+  display: block;
+  padding: 1em;
+  color: #fff;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+/* Hover effect on top-level links */
+#nav_menu ul li a:hover {
+  background-color: #a00000;
+}
+
+/* “current” page styling */
+#nav_menu a.current {
+  background-color: #ffcc00;
+  color: #800000;
+}
+
+/* Submenu: hidden by default */
+#nav_menu ul ul {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  background-color: #800000;
+}
+
+/* Submenu items stack vertically */
+#nav_menu ul ul li {
+  float: none;
+  width: 100%;
+}
+
+/* Submenu links */
+#nav_menu ul ul li a {
+  padding: 0.8em;
+  border-top: 1px solid #fff;
+}
+
+/* Show submenu on hover */
+#nav_menu li:hover ul {
+  display: block;
+}
+
+/* Clear floats in nav after the list */
+#nav_menu ul::after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* Circle bullets for the bottom list on index.html */
+.circle-bullets {
+  list-style-type: circle;
+  margin: 1rem 2rem;
+}
+
+/* Float-right helper (used in Sampson page below) */
+.float-right {
+  float: right;
+  margin: 0 0 1rem 1rem;
+}
